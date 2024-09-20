@@ -1,12 +1,17 @@
 import seaborn.objects as so
 import pandas as pd
 import numpy as np
-from autocorrelation import estimate_episodic_acf, estimate_episodic_acf_v2
-import config
-from utils import norm_density, ensure_dir
-from timer import timeit_debug, timeit_info
-from numba import jit, prange
-from autocorrelation import estimate_occ_zero_cf, estimate_occ_acf
+from utils import (norm_density,
+                   timeit_debug, timeit_info,
+                   estimate_occ_zero_cf,
+                   estimate_occ_acf,
+                   estimate_episodic_acf,
+                   estimate_episodic_acf_v2,
+                   jit_nopython,
+                   jit_cache,
+                   n_decimals,
+                   verbose)
+from numba import jit
 import tqdm
 import torch
 from torch.distributions import Categorical
@@ -81,7 +86,7 @@ class EpisodicSimulator(object):
 
     # Methods
     @timeit_debug
-    @jit(nopython=config.jit_nopython, parallel=config.jit_nopython, cache=config.jit_cache)
+    @jit(nopython=jit_nopython, parallel=jit_nopython, cache=jit_cache)
     def evolve(self, n_step=1, rho_start=None, ignore_imag=True):
         if rho_start is None:
             rho_start = self.rho_init
@@ -100,7 +105,7 @@ class EpisodicSimulator(object):
         return rho_start
 
     @timeit_debug
-    def _check_state_density(self, rho_state, n_decimals=config.n_decimals):
+    def _check_state_density(self, rho_state, n_decimals=n_decimals):
         assert (rho_state >= 0).all(), 'State density in negative range.'
         if np.allclose(rho_state.sum(), 1):
             return rho_state / rho_state.sum()
@@ -127,7 +132,7 @@ class EpisodicSimulator(object):
         return reward
 
     @timeit_info
-    @jit(nopython=config.jit_nopython, parallel=config.jit_nopython, cache=config.jit_cache)
+    @jit(nopython=jit_nopython, parallel=jit_nopython, cache=jit_cache)
     def sample_sequences(self, n_step=100, n_samp=50, rho_start=None, fast_storage=True):
         self.sequences_generated = True
         self.fast_storage = fast_storage
@@ -148,7 +153,7 @@ class EpisodicSimulator(object):
         rewards = np.zeros((n_samp, n_seq_steps))
         log_probs = torch.zeros((n_samp, n_seq_steps))
 
-        iterator = tqdm(range(n_samp), desc='SAMPLING') if config.verbose else range(n_samp)
+        iterator = tqdm(range(n_samp), desc='SAMPLING') if verbose else range(n_samp)
 
         for ns in iterator:
             state = self._sample_state(rho_start)

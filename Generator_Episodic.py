@@ -4,9 +4,8 @@
 import numpy as np
 import numpy.linalg as LA
 from copy import deepcopy
-import config
-from utils import row_norm, eigen_decomp, is_symmetric, symnorm_graph_laplacian, is_normal, is_unitary
-from timer import timeit_debug, timeit_info
+from utils import (row_norm, eigen_decomp, is_symmetric, symnorm_graph_laplacian, timeit_debug,
+                   timeit_info, min_val)
 
 
 class Generator(object):
@@ -248,7 +247,7 @@ def evals_info(evals):
         unique, counts = np.unique(evals, return_counts=True)
         comb = np.vstack((unique[counts > 1], counts[counts > 1])).T
         print("EIGENSPECTRUM: algebraic multiplicity > 1.")
-    if LA.norm(evals[np.iscomplex(evals)]) > config.min_val:
+    if LA.norm(evals[np.iscomplex(evals)]) > min_val:
         print("EIGENSPECTRUM: complex eigenvalues:", evals[np.iscomplex(evals)])
     if np.any(np.real(evals) > 0.0):
         print("EIGENSPECTRUM: real components of eigenvalues in positive domain:")

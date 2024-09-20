@@ -9,20 +9,18 @@ from gym import spaces
 from gym.utils import seeding
 import holoviews as hv
 from utils import create_tensor, row_norm
-from visualization import (
+from utils import (
     text_font_size,
     node_size,
     edge_size,
     color_index_edge,
     cmap_edge,
     remove_axes,
-)
-from utils import (
-    pos_dict,
-)
-from networkx.drawing.nx_agraph import graphviz_layout
+    pos_dict,)
+
 
 hv.extension("bokeh", "matplotlib")
+
 
 
 class GraphEnv(gym.Env):

@@ -4,8 +4,8 @@ import numpy as np
 from copy import deepcopy
 import matplotlib.pyplot as plt
 import seaborn as sns
-from utils import process_eigen_grad
-from timer import timeit_debug, timeit_info
+from utils import process_eigen_grad, timeit_debug, timeit_info
+
 
 class Propagator(object):
     """
