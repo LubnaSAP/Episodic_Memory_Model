@@ -68,8 +68,8 @@ McNamee, D. C., Stachenfeld, K. L., Botvinick, M. M., & Gershman, S. J. (2021). 
 
 ## Acknowledgments
 
-This repository builds upon the foundational work of the FlexModEHC model. Aleix Alcaceres (GitHub: [aleixalcacer](https://github.com/aleixalcacer)) initially started working on this model. 
-Special thanks to Dan McNamee and his collaborators for making their code and insights publicly available.
+This repository builds upon the foundational work of the FlexModEHC model, special tahanks to Dan for making their code and insights publicly available.. Aleix Alcaceres (GitHub: [aleixalcacer](https://github.com/aleixalcacer)) initially started working on this model. 
+Thanks to Raphael Kaplan & Dan McNamee for their ideas, inputd, contribution and guidance.
 
 
 --- 
