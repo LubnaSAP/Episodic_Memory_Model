@@ -183,4 +183,4 @@ plt.tight_layout()
 plt.show()
 
 
-fig.savefig("Bar_comparison_with_and_without_cued_biasy.pdf", bbox_inches="tight")
+#fig.savefig("Bar_comparison_with_and_without_cued_biasy.pdf", bbox_inches="tight")

@@ -305,7 +305,7 @@ ax.legend()
 ax.set_xlabel("Time (s)")
 plt.show()
 # save as pdf
-fig.savefig("sampling.pdf", bbox_inches="tight")
+#fig.savefig("sampling.pdf", bbox_inches="tight")
 
 
 df_eval = compute_evaluation(df_sequences, df_env_novel_states)
@@ -328,7 +328,7 @@ p = (
 )
 plt.show()
 # save as pdf
-fig.savefig("evaluation.pdf", bbox_inches="tight")
+#fig.savefig("evaluation.pdf", bbox_inches="tight")
 
 
 ##########################################################################################################################################################

@@ -223,7 +223,7 @@ p = (
 )
 plt.show()
 # save as pdf
-fig.savefig("evaluation_sanity_check.pdf", bbox_inches="tight")
+#fig.savefig("evaluation_sanity_check.pdf", bbox_inches="tight")
 
 
 
@@ -237,7 +237,7 @@ ax.set_ylabel('Count')
 ax.legend(title='Model')
 plt.xticks(rotation=90)
 plt.show()
-fig.savefig("state_exploration_count.pdf", bbox_inches="tight")
+#fig.savefig("state_exploration_count.pdf", bbox_inches="tight")
 
 
 
@@ -251,7 +251,7 @@ ax.set_xlabel('Model')
 ax.set_ylabel('State')
 plt.xticks(rotation=90)
 plt.show()
-fig.savefig("state_exploration_heatmap.pdf", bbox_inches="tight")
+#fig.savefig("state_exploration_heatmap.pdf", bbox_inches="tight")
 
 
 
@@ -273,7 +273,7 @@ for model, matrix in transition_matrices.items():
     ax.set_xlabel('Next State')
     ax.set_ylabel('Previous State')
     plt.show()
-    fig.savefig(f"state_transition_heatmap_{model.replace(' ', '_')}.pdf", bbox_inches="tight")
+    #fig.savefig(f"state_transition_heatmap_{model.replace(' ', '_')}.pdf", bbox_inches="tight")
 
 
 
@@ -288,7 +288,7 @@ ax.set_xlabel('Model')
 ax.set_ylabel('Number of Episodes Covered')
 plt.xticks(rotation=45)
 plt.show()
-fig.savefig("episode_coverage.pdf", bbox_inches="tight")
+#fig.savefig("episode_coverage.pdf", bbox_inches="tight")
 
 
 # Count the number of unique states visited by each model
@@ -302,7 +302,7 @@ ax.set_xlabel('Model')
 ax.set_ylabel('Number of Unique States Visited')
 plt.xticks(rotation=45)
 plt.show()
-fig.savefig("unique_state_visits.pdf", bbox_inches="tight")
+#fig.savefig("unique_state_visits.pdf", bbox_inches="tight")
 
 
 # Calculate unique state visits over time
@@ -315,7 +315,7 @@ ax.set_title('Unique State Visits Over Time by Model')
 ax.set_xlabel('Time Step')
 ax.set_ylabel('Number of Unique States Visited')
 plt.show()
-fig.savefig("unique_state_visits_over_time.pdf", bbox_inches="tight")
+#fig.savefig("unique_state_visits_over_time.pdf", bbox_inches="tight")
 
 
 
@@ -343,7 +343,7 @@ for model, seqs in seqs_score.items():
             edge_color="gray")
     plt.title(f'Word Co-occurrence Network for {model}')
     plt.show()
-    plt.savefig(f"word_cooccurrence_network_{model.replace(' ', '_')}.pdf", bbox_inches="tight")
+    #plt.savefig(f"word_cooccurrence_network_{model.replace(' ', '_')}.pdf", bbox_inches="tight")
 
 
 # Aggregate state distributions over time
@@ -368,4 +368,4 @@ for model, matrix in similarity_matrices.items():
     ax.set_xlabel('Sequence Index')
     ax.set_ylabel('Sequence Index')
     plt.show()
-    fig.savefig(f"sequence_similarity_matrix_{model.replace(' ', '_')}.pdf", bbox_inches="tight")
+    #fig.savefig(f"sequence_similarity_matrix_{model.replace(' ', '_')}.pdf", bbox_inches="tight")

@@ -161,7 +161,7 @@ p = (
 plt.show()
 
 # Save the plot as a PDF
-fig.savefig("evaluation_sanity_check_non_difusion.pdf", bbox_inches="tight")
+#fig.savefig("evaluation_sanity_check_non_difusion.pdf", bbox_inches="tight")
 
 
 #######################################################################
@@ -246,5 +246,5 @@ ax[1].legend()
 plt.tight_layout()
 
 # Save the plot as a PDF
-fig.savefig("comparison_non_diffusive_uniform_model.pdf", bbox_inches="tight")
+#fig.savefig("comparison_non_diffusive_uniform_model.pdf", bbox_inches="tight")
 plt.show()
